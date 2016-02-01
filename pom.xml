@@ -8,7 +8,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <groupId>jiconfont</groupId>
+    <groupId>com.github.jiconfont</groupId>
     <artifactId>jiconfont</artifactId>
     <version>0.9.0</version>
     <packaging>jar</packaging>
