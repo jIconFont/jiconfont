@@ -1,5 +1,7 @@
 package jiconfont;
 
+import java.io.InputStream;
+
 /**
  * Copyright (c) 2016 jIconFont <BR>
  * <BR>
@@ -29,5 +31,10 @@ public interface IconCode {
 
   String getFontFamily();
 
-  String getFontPath();
+  /**
+   * Gets a stream to the font.
+   * 
+   * @return InputStream
+   */
+  InputStream getFontInputStream();
 }
