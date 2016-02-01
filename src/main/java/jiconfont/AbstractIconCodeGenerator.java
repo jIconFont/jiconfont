@@ -26,8 +26,16 @@ import java.util.*;
 public class AbstractIconCodeGenerator {
 
   private Map<String, String> icons = new HashMap<>();
+  private String prefix;
+
+  public AbstractIconCodeGenerator(String prefix) {
+    this.prefix = prefix;
+  }
 
   public void registerIcon(String name, String unicode) {
+    if (Character.isDigit(name.charAt(0))) {
+      name = prefix + name;
+    }
     this.icons.put(name, unicode);
   }
 
@@ -55,10 +63,10 @@ public class AbstractIconCodeGenerator {
       sb.append(simpleIconCode.getUnicode());
       sb.append("')");
       if (i < list.size() - 1) {
-        sb.append("',");
+        sb.append(",");
       }
       else {
-        sb.append("';");
+        sb.append(";");
       }
       sb.append("\n");
     }
