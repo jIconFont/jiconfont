@@ -1,8 +1,5 @@
 package jiconfont;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Copyright (c) 2016 jIconFont <BR>
  * <BR>
@@ -24,11 +21,44 @@ import java.util.List;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class StackedIconBuilder<BUILDER extends IconBuilder> {
+public class DefaultIconCode implements IconCode {
 
-  private List<BUILDER> builderList = new ArrayList<>();
+    private char unicode;
+    private String fontFamily;
 
-  public void add(BUILDER builder) {
-    this.builderList.add(builder);
-  }
+    public DefaultIconCode() {
+        this("",' ');
+    }
+
+    public DefaultIconCode(String fontFamily, char unicode) {
+        setUnicode(unicode);
+        setFontFamily(fontFamily);
+    }
+
+    @Override
+    public String name() {
+        return "?";
+    }
+
+    public void setFontFamily(String fontFamily) {
+        if(fontFamily==null) {
+            this.fontFamily="";
+        } else{
+            this.fontFamily = fontFamily;
+        }
+    }
+
+    public void setUnicode(char unicode) {
+        this.unicode = unicode;
+    }
+
+    @Override
+    public char getUnicode() {
+        return unicode;
+    }
+
+    @Override
+    public String getFontFamily() {
+        return fontFamily;
+    }
 }

@@ -10,7 +10,7 @@
 
     <groupId>com.github.jiconfont</groupId>
     <artifactId>jiconfont</artifactId>
-    <version>0.10.0-SNAPSHOT</version>
+    <version>0.10.0</version>
     <packaging>jar</packaging>
 
     <name>jIconFont</name>

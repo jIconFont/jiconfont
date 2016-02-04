@@ -1,5 +1,7 @@
 package jiconfont;
 
+import java.io.InputStream;
+
 /**
  * Copyright (c) 2016 jIconFont <BR>
  * <BR>
@@ -21,38 +23,19 @@ package jiconfont;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public abstract class IconBuilder<FONT extends IconBuilder, COLOR, SIZE> {
+public interface IconFont {
 
-  private SIZE size;
-  private COLOR color;
-  private IconCode icon;
+  /**
+   * Gets the font family name.
+   *
+   * @return String
+   */
+  String getFontFamily();
 
-  protected IconBuilder(IconCode icon) {
-    this.icon = icon;
-  }
-
-  public final FONT setSize(SIZE size) {
-    this.size = size;
-    return getIconFontClass().cast(this);
-  }
-
-  public final SIZE getSize() {
-    return size;
-  }
-
-  public final FONT setColor(COLOR color) {
-    this.color = color;
-    return getIconFontClass().cast(this);
-  }
-
-  public final COLOR getColor() {
-    return color;
-  }
-
-  public final IconCode getIcon() {
-    return icon;
-  }
-
-  protected abstract Class<FONT> getIconFontClass();
-
+  /**
+   * Gets a stream to the font.
+   * 
+   * @return InputStream
+   */
+  InputStream getFontInputStream();
 }
