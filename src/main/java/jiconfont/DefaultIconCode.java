@@ -23,40 +23,39 @@ package jiconfont;
  */
 public class DefaultIconCode implements IconCode {
 
-    private char unicode;
-    private String fontFamily;
+    private final char unicode;
+    private final String fontFamily;
 
-    public DefaultIconCode() {
-        this("",' ');
-    }
-
+    /**
+     * Construtor.
+     *
+     * @param fontFamily the font family.
+     * @param unicode    the icon code.
+     */
     public DefaultIconCode(String fontFamily, char unicode) {
-        setUnicode(unicode);
-        setFontFamily(fontFamily);
-    }
-
-    @Override
-    public String name() {
-        return "?";
-    }
-
-    public void setFontFamily(String fontFamily) {
-        if(fontFamily==null) {
-            this.fontFamily="";
-        } else{
-            this.fontFamily = fontFamily;
-        }
-    }
-
-    public void setUnicode(char unicode) {
+        this.fontFamily = fontFamily;
         this.unicode = unicode;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String name() {
+        return "[" + getUnicode() + "]";
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public char getUnicode() {
         return unicode;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getFontFamily() {
         return fontFamily;
